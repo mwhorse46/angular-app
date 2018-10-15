@@ -10,7 +10,7 @@
  -->
 
 <h2>My Heroes</h2>
-<ul>
+<ul class="heroes">
 	<li *ngFor="let hero of heroes" 
 		(click)="onSelect(hero)" 
 		[class.selected]="hero === selectedHero">
