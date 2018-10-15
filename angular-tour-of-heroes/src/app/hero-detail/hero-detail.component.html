@@ -1,11 +1,10 @@
-<div *ngIf="hero">
-	<h2>{{ hero.name|uppercase }} Details</h2>
+<div *ngIf="hero" class="mb-5">
+	<h2 class="mb-3">{{ hero.name|uppercase }} Details</h2>
 	<div>
 		<span>id:</span>{{ hero.id }}
 	</div>
-	<div>
-		<label>name:
-			<input [(ngModel)]="hero.name" placeholder="name">
-		</label>
+	<div class="mt-3 col-sm-4 col-sm-offset-4">
+		<input class="form-control" [(ngModel)]="hero.name" placeholder="name">
+		<!-- <label>name:</label> -->
 	</div>
 </div>
