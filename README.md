@@ -186,3 +186,25 @@ imports: [
   FormsModule
 ],
 ```
+
+## Services
+In this section we learn how to create service for components. So far we have been using 
+mock data which is as it is provided to our component, but this won't happen in real 
+world. We will be fetching data from a remote server like django rest API. So in that 
+case we need service that let's you fetch data from anywhere.
+
+Create a service using
+
+```
+ng generate service hero
+```
+
+This service will provide data to heroes component which then it will display and 
+hero-detail will display its details.
+
+Angular CLI generated two files ```hero.service.ts``` and ```hero.service.spec.ts``` that
+uses ```import { Injectable } from '@angular/core';``` which is denoted using ```@Injectable``` with some metadata.
+
+We can add parameters ```private``` or ```public``` in the constructor of service and 
+then use those parameters in components. ```public``` parameters can be only be binded 
+into the template like we did in ```message``` service.
