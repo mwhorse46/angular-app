@@ -208,3 +208,26 @@ uses ```import { Injectable } from '@angular/core';``` which is denoted using ``
 We can add parameters ```private``` or ```public``` in the constructor of service and 
 then use those parameters in components. ```public``` parameters can be only be binded 
 into the template like we did in ```message``` service.
+
+## Routing
+In this section we will generate a separate module for routing purposes of the app
+
+```
+ng generate module app-routing --flat --module=app
+```
+
+```--flat``` puts the files in **src/app** folder instead of its own folder.
+```--module=app``` tell CLI to register the module in ```imports``` array of ```AppModule```
+
+The generated files have ```NgModule.declarations``` which is not needed in routing file 
+as well as ```CommonModule``` references.
+
+We need to export ```RouterModule``` from ```@angular/router```
+
+Routes tell the router which view to display when a user clicks a link or pastes a URL 
+into the browser address bar.
+
+A **Angular Route** needs two important parts,
+
+1. ```path```: a string that matches the url in the address bar.
+2. ```component```: a component that router should create when navigating to route.
