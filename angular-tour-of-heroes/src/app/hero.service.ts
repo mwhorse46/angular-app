@@ -18,14 +18,23 @@ export class HeroService {
 		// return of(HEROES);
 		return this.http.get<Hero[]>(this.heroesUrl)
 			.pipe(
+				tap(heroes => this.log('Fetched heroes')),	// <- uses log which send message
 				catchError(this.handleError('getHeroes', []))
 			)
 	}
 
 	getHero(id: number): Observable<Hero> {
 		// TODO: send the message __after__ fetching the hero
-		this.messageService.add(`HeroService: fetched hero id = ${id}`);
-		return of(HEROES.find(hero => hero.id === id));
+		// this.messageService.add(`HeroService: fetched hero id = ${id}`);
+		// return of(HEROES.find(hero => hero.id === id));
+
+		// send data using http
+		const url = `${this.heroesUrl}/${id}`;
+		return this.http.get<Hero>(url)
+			.pipe(
+				tap(_ => this.log(`fetched hero id:${id}`)),
+				catchError(this.handleError<Hero>('getHero id=${id}'))
+			)
 	}
 
 	    /**
